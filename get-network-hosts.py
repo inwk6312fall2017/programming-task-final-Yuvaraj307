@@ -63,7 +63,10 @@ response = requests.get(url, headers=header, verify=False)
 # print the response in a 'pretty' format with indentation etc.
 print ("Hosts = ")
 print (json.dumps(response.json(), indent=4, separators=(',', ': ')))
+def getnetworkdevicecount():
+	r_resp=response.json()
+	print(r_resp["response"][0]["hostIp"])
+	print(r_resp["response"][0]["hostMac"])
+	print(r_resp["response"][0]["network-device"]["count"])
+getnetworkdevicecount()
 
-r_resp=response.json()
-
-print(r_resp["response"][0]["hostIp"])
