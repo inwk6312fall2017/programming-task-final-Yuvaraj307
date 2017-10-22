@@ -32,7 +32,7 @@ controller='sandboxapic.cisco.com'
 
 
 # put the ip address or dns of your apic-em controller in this url
-url = "https://" + controller + "/api/v1/ticket"
+url = "https://" + controller + "/api/v1/host"
 
 #the username and password to access the APIC-EM Controller
 payload = {"username":"devnetuser","password":"Cisco123!"}
@@ -51,7 +51,7 @@ print(r_json)
 ticket = r_json["response"]["serviceTicket"]
 
 # URL for Host REST API call to get list of exisitng hosts on the network.
-url = "https://" + controller + "/api/v1/host?limit=1&offset=1"
+url = "https://" + controller + "/api/v1/host?hostIp=10.0"
 
 #Content type must be included in the header as well as the ticket
 header = {"content-type": "application/json", "X-Auth-Token":ticket}
